@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Infos index{% endblock %}
+
+{% block body %}
+    <h1>Infos index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Rank</th>
+                <th>Victoire</th>
+                <th>Defaite</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for info in infos %}
+            <tr>
+                <td>{{ info.id }}</td>
+                <td>{{ info.rank }}</td>
+                <td>{{ info.victoire }}</td>
+                <td>{{ info.defaite }}</td>
+                <td>
+                    <a href="{{ path('app_infos_show', {'id': info.id}) }}">détail</a>
+                    <a href="{{ path('app_infos_edit', {'id': info.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_infos_new') }}">Ajouter</a>
+{% endblock %}

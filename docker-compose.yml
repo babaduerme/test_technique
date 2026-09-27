@@ -1,0 +1,48 @@
+services:
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    container_name: php83
+    working_dir: /var/www
+    volumes:
+      - ./symfony:/var/www
+    depends_on:
+      - postgres
+    networks:
+      - symfony
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./symfony:/var/www
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - php
+    networks:
+      - symfony
+
+  postgres:
+    image: postgres:16
+    container_name: postgres_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: test_cisad
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - symfony
+
+volumes:
+  postgres_data:
+
+networks:
+  symfony:
+    driver: bridge

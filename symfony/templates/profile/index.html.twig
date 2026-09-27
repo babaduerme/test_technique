@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon profil{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+
+    <h1>Mon profil</h1>
+
+    <table class="table table-bordered mt-4">
+        <tbody>
+            <tr>
+                <th>Username</th>
+                <td>{{ user.username }}</td>
+            </tr>
+
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+
+            <tr>
+                <th>Rang</th>
+                <td>
+                    {% if infos %}
+                        {{ infos.rank }}
+                    {% else %}
+                        Non renseigné
+                    {% endif %}
+                </td>
+            </tr>
+
+            <tr>
+                <th>Victoires</th>
+                <td>
+                    {% if infos %}
+                        {{ infos.victoire }}
+                    {% else %}
+                        0
+                    {% endif %}
+                </td>
+            </tr>
+
+            <tr>
+                <th>Défaites</th>
+                <td>
+                    {% if infos %}
+                        {{ infos.defaite }}
+                    {% else %}
+                        0
+                    {% endif %}
+                </td>
+            </tr>
+
+            <tr>
+                <th>Rôles</th>
+                <td>{{ user.roles|join(', ') }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Import CSV{% endblock %}
+
+{% block body %}
+
+<div class="container mt-5">
+
+    <h1>Importer des utilisateurs</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {% for message in app.flashes('danger') %}
+        <div class="alert alert-danger">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <form method="post" enctype="multipart/form-data">
+
+        <div class="mb-3">
+            <label class="form-label">Fichier CSV</label>
+            <input type="file" name="csv" class="form-control" accept=".csv" required>
+        </div>
+
+        <button class="btn btn-primary">
+            Importer
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

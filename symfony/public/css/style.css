@@ -1,0 +1,83 @@
+body{
+    background:#F8F5EE;
+    color:#2C2C2C;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar{
+    background:#0B1F3A !important;
+}
+
+.navbar-brand{
+    color:#F8F5EE !important;
+    font-weight:bold;
+    font-size:24px;
+}
+
+.nav-link{
+    color:#F8F5EE !important;
+}
+
+.nav-link:hover{
+    color:#C9A227 !important;
+}
+
+/* ===== TITRES ===== */
+
+h1,h2,h3,h4{
+    color:#0B1F3A;
+    font-weight:bold;
+}
+
+/* ===== TABLEAUX ===== */
+
+.table{
+    background:white;
+}
+
+.table thead{
+    background:#1E3A5F;
+    color:white;
+}
+
+/* ===== BOUTONS ===== */
+
+.btn-primary{
+    background:#1E3A5F;
+    border:none;
+}
+
+.btn-primary:hover{
+    background:#0B1F3A;
+}
+
+.btn-success{
+    background:#C9A227;
+    border:none;
+    color:white;
+}
+
+.btn-success:hover{
+    background:#A6841E;
+}
+
+.btn-danger{
+    background:#8B1E1E;
+}
+
+/* ===== CARTES ===== */
+
+.card{
+    border:none;
+    border-radius:12px;
+    box-shadow:0 3px 10px rgba(0,0,0,.15);
+}
+
+/* ===== FORMULAIRES ===== */
+
+.form-control:focus{
+    border-color:#1E3A5F;
+    box-shadow:0 0 5px rgba(30,58,95,.5);
+}

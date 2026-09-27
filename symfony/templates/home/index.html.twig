@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+
+<div class="text-center mt-5">
+
+    <h1>Bienvenue sur le Test Technique Symfony</h1>
+
+    <p class="lead">
+        Gestion des utilisateurs et des statistiques League of Legends.
+    </p>
+
+    {% if app.user %}
+
+        <h4 class="mt-4">
+            Bonjour {{ app.user.username }} 
+        </h4>
+
+    {% else %}
+
+        <p class="mt-4">
+            Connectez-vous ou créez un compte pour commencer.
+        </p>
+
+        <a href="{{ path('app_login') }}" class="btn btn-success">
+            Connexion
+        </a>
+
+        <a href="{{ path('app_register') }}" class="btn btn-primary">
+            Inscription
+        </a>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

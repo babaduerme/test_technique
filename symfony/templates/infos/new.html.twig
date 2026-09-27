@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Infos{% endblock %}
+
+{% block body %}
+    <h1>création d'information</h1>
+
+    {{ include('infos/_form.html.twig') }}
+
+    <a href="{{ path('app_infos_index') }}">Retour</a>
+{% endblock %}
